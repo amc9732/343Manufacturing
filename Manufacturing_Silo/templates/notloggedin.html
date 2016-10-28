@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>KennUWare</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../style/cover.css" rel="stylesheet">
+    <link href="../style/signin.css" rel="stylesheet">
+
+  </head>
+ <body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+				<ul class="nav pull-left">
+					<li><a href="/" class="btn btn-lg btn-primary btn-block">KennUWare</a></li>
+					<li><a href="/showSignInPage" class="btn btn-lg btn-primary btn-block">Sign-In</a></li>
+				</ul>
+		</div>	
+	</div>
+			
+	<div class="container">
+		<div class="jumbotron">
+			<h2 class="email">Please login to use that function.</h2>
+			    <form class="form-signin" action="/verifyuser" method="post"  >
+					<label for="email" class="sr-only">Please login to use that function.</label>
+					<input type="email" id="email" name="email" class="form-control" placeholder="Email address" required="" autofocus="">
+					<label for="pass" class="sr-only">New Password</label>
+					<input type="password" id="pass" class="form-control" name="pass" placeholder="Password" required="">  
+					<button id="btnSignIn" class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+				</form>
+		</div>
+	</div>    
+  </body>
+</html>
