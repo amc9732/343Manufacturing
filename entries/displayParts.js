@@ -7,7 +7,7 @@
  */
 
 // Quick fix to delete old entries when hitting refresh button.
-var displayTableHtml = "<tbody><tr><th>Type</th><th>Attribute</th><th>Qunatity</th></tr></tbody>";
+var displayTableHtml = "<tbody><tr><th>Type</th><th>Attribute</th><th>Quantity</th><th>Description</th></tr></tbody>";
 
 $(document).ready(function(){
     displayParts();
@@ -34,6 +34,7 @@ function displayParts(){
                 tableContent += '<td>' + value.Type + '</td>';
                 tableContent += '<td>' + value.Attribute + '</td>';
                 tableContent += '<td>' + value.Quantity + '</td>';
+                tableContent += '<td>' + value.Description + '</td>';
                 tableContent += '</tr>'
             });
 
@@ -67,6 +68,7 @@ function displayParts(){
                      tableContent += '<td>' + value.Type + '</td>';
                      tableContent += '<td>' + value.Attribute + '</td>';
                      tableContent += '<td>' + value.Quantity + '</td>';
+                     tableContent += '<td>' + value.Description + '</td>';
                      tableContent += '</tr>'
              });
 
