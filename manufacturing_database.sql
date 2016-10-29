@@ -111,6 +111,7 @@ CREATE TABLE `parts` (
   `Type` varchar(10) DEFAULT NULL,
   `Attribute` varchar(2) DEFAULT NULL,
   `Quantity` int(11) DEFAULT NULL,
+  `Description` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`PModelID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -121,7 +122,7 @@ CREATE TABLE `parts` (
 
 LOCK TABLES `parts` WRITE;
 /*!40000 ALTER TABLE `parts` DISABLE KEYS */;
-INSERT INTO `parts` VALUES (1,'Body','SB',0),(2,'Body','SG',0),(3,'Body','SS',0),(4,'Band','B',125),(5,'Band','G',125),(6,'Band','S',125),(7,'Band','L',125),(8,'Sensor','01',300),(9,'Comfort','01',200),(10,'Comfort','02',150),(11,'LED','01',400),(12,'Body','LB',0),(13,'Body','LG',0),(14,'Body','LS',0),(15,'Screen','B',100),(16,'Screen','T',400),(17,'USB',NULL,500),(22,'Chip',NULL,500),(23,'Software','F',NULL),(24,'Software','C',NULL),(25,'Software','H',NULL),(26,'Software','A',NULL),(27,'Body','RB',200),(28,'Body','RG',100),(29,'Body','RS',200);
+INSERT INTO `parts` VALUES (1,'Body','SB',0,'Small Finished Black Body'),(2,'Body','SG',0,'Small Finished Gold Body'),(3,'Body','SS',0,'Small Finished Silver Body'),(4,'Band','B',125,'Black Band'),(5,'Band','G',125,'Gold Band'),(6,'Band','S',125,'Silver Band'),(7,'Band','L',125,'Leather Band'),(8,'Sensor','01',300,'Biofeedback Sensor'),(9,'Comfort','01',200,'Heating Coil'),(10,'Comfort','02',150,'Electric Stimulator'),(11,'LED','01',400,'LED Light'),(12,'Body','LB',0,'Large Finished Black Body'),(13,'Body','LG',0,'Large Finished Gold Body'),(14,'Body','LS',0,'Large Finished Silver Body'),(15,'Screen','B',100,'Basic Screen'),(16,'Screen','T',400,'High-Resolution Touch Screen'),(17,'USB','--',500,'USB Port'),(22,'Chip','--',500,'Computer Chip'),(23,'Software','F',NULL,'Fashion Watch Software'),(24,'Software','C',NULL,'Comfort Watch Software'),(25,'Software','H',NULL,'Heath Watch Software'),(26,'Software','A',NULL,'Active Watch Software'),(27,'Body','RB',200,'Raw Black Metal for Body'),(28,'Body','RG',100,'Raw Gold Metal for Body'),(29,'Body','RS',200,'Raw Silver Metal for Body');
 /*!40000 ALTER TABLE `parts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,4 +165,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-29 18:54:02
+-- Dump completed on 2016-10-29 19:37:33
