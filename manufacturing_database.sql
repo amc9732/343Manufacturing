@@ -30,6 +30,7 @@ CREATE TABLE `machine` (
   `HourlyCost` float DEFAULT NULL,
   `ProductionRate` float DEFAULT NULL,
   `Price` float DEFAULT NULL,
+  `Employee` int(11) DEFAULT NULL,
   PRIMARY KEY (`MachineID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -40,6 +41,7 @@ CREATE TABLE `machine` (
 
 LOCK TABLES `machine` WRITE;
 /*!40000 ALTER TABLE `machine` DISABLE KEYS */;
+INSERT INTO `machine` VALUES (1,'Large Body Press',5,3,25000,2),(2,'Small Body Press',5,3,15000,NULL),(3,'Assembly Station',0,2,500,4),(4,'Chip Installer Robot',1,5,100000,NULL),(5,'LED Installer Robot',1,5,100000,NULL),(6,'Sensor Installer Robot',1,5,100000,NULL),(7,'USB Installer Robot',1,5,20000,NULL),(8,'Comfort Installer Robot',1,5,100000,NULL),(9,'Screen Installer Robot',1,5,100000,1),(10,'Software Installer',2,1,2000,NULL);
 /*!40000 ALTER TABLE `machine` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,9 +108,8 @@ DROP TABLE IF EXISTS `partmodel`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `partmodel` (
   `PModelID` int(11) NOT NULL,
-  `PartName` varchar(45) DEFAULT NULL,
-  `Type` varchar(45) DEFAULT NULL,
-  `Attribute` varchar(45) DEFAULT NULL,
+  `Type` varchar(10) DEFAULT NULL,
+  `Attribute` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`PModelID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -119,7 +120,34 @@ CREATE TABLE `partmodel` (
 
 LOCK TABLES `partmodel` WRITE;
 /*!40000 ALTER TABLE `partmodel` DISABLE KEYS */;
+INSERT INTO `partmodel` VALUES (1,'Body','SB'),(2,'Body','SG'),(3,'Body','SS'),(4,'Band','B'),(5,'Band','G'),(6,'Band','S'),(7,'Band','L'),(8,'Sensor','01'),(9,'Comfort','01'),(10,'Comfort','02'),(11,'LED','01'),(12,'Body','LB'),(13,'Body','LG'),(14,'Body','LS'),(15,'Screen','B'),(16,'Screen','T'),(17,'USB',NULL),(18,'Band','B'),(19,'Band','G'),(20,'Band','S'),(21,'Band','L'),(22,'Chip',NULL),(23,'Software','F'),(24,'Software','C'),(25,'Software','H'),(26,'Software','A');
 /*!40000 ALTER TABLE `partmodel` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `process`
+--
+
+DROP TABLE IF EXISTS `process`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `process` (
+  `PartType` varchar(10) NOT NULL,
+  `Machine` int(11) NOT NULL,
+  PRIMARY KEY (`PartType`,`Machine`),
+  KEY `Machine_idx` (`Machine`),
+  CONSTRAINT `Machine` FOREIGN KEY (`Machine`) REFERENCES `machine` (`MachineID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `process`
+--
+
+LOCK TABLES `process` WRITE;
+/*!40000 ALTER TABLE `process` DISABLE KEYS */;
+INSERT INTO `process` VALUES ('Body',1),('Body',2),('Band',3),('Chip',4),('LED',5),('Sensor',6),('USB',7),('Comfort',8),('Screen',9),('Software',10);
+/*!40000 ALTER TABLE `process` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -237,4 +265,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-29 14:04:38
+-- Dump completed on 2016-10-29 17:36:09
