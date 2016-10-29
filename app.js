@@ -5,22 +5,29 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "testpassword",
+  password: "test",
   port: 3306
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-	
+
 //connection.connect();
 
-connection.query('SELECT * from hr_database.employees', function(err, rows, fields) {
+connection.query('SELECT * from manufacturing_database.part', function(err, rows, fields) {
   if (!err)
-    console.log('The solution is: ', rows);
+    console.log('Connection To "part" Successful');
   else
     console.log('Error while performing Query.');
 });
+
+connection.query('SELECT * from manufacturing_database.machine', function(err, rows, fields) {
+	  if (!err)
+	    console.log('Connection To "machine" Successful');
+	  else
+	    console.log('Error while performing Query.');
+	});
 
 //connection.end();
 // Binding express app to port 3000
@@ -53,23 +60,93 @@ app.get('/showSignInPageretry',function(req,res){
     res.sendFile('signinretry.html',{'root': __dirname + '/templates'});
 });
 
+app.get('/showModifyUsers',function(req,res){
+	if(authenticated){
+		res.sendFile('modifyUsers.html',{'root':__dirname + '/templates'})
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
+});
+
 app.get('/message',function(req,res){
     res.sendFile('message.html',{'root': __dirname + '/templates'});
 });
 
 app.get('/loggedin',function(req,res){
-    res.sendFile('loggedin.html',{'root': __dirname + '/templates'});
-	
+    if(authenticated){
+        res.sendFile('loggedin.html',{'root': __dirname + '/templates'});
+    } else {
+    		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+    }
 });
 
-app.get('/showEmployees', function(req, res){
-	//res.send("Test");
+app.get('/machines',function(req,res){
+    if(authenticated){
+        res.sendFile('machines.html',{'root': __dirname + '/templates'});
+    } else {
+    		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+    }
+});
+
+app.get('/manufacture',function(req,res){
+    if(authenticated){
+        res.sendFile('manufacture.html',{'root': __dirname + '/templates'});
+    } else {
+    		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+    }
+});
+
+app.get('/showMachines', function(req, res){
 	if(authenticated){
-		connection.query('SELECT * FROM hr_database.employees', function(err,results){
+		connection.query('SELECT * FROM manufacturing_database.machine', function(err,results){
 		if(err) throw err;
-		console.log('Test value', results);
-		var string=JSON.stringify(results);
-		console.log('Stringy', string);
+		res.send(results);
+	});
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
+});
+
+app.get('/showParts', function(req, res){
+	if(authenticated){
+		connection.query('SELECT * FROM manufacturing_database.part', function(err,results){
+		if(err) throw err;
+		res.send(results);
+	});
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
+});
+
+app.post('/searchMachines', function(req, res){
+	if(authenticated){
+		var searchText = req.body.searchText;
+		var searchOption = req.body.searchOption;
+		var selectString = 'SELECT * FROM manufacturing_database.machine WHERE '+req.body.searchOption+' = "'+req.body.searchText+'" ';
+		connection.query(selectString, function(err,results){
+		if(err) throw err;
+		res.send(results);
+	});
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
+});
+
+app.post('/searchParts', function(req, res){
+	if(authenticated){
+		var searchText = req.body.searchText;
+		var searchOption = req.body.searchOption;
+		var selectString = 'SELECT * FROM manufacturing_database.part WHERE '+req.body.searchOption+' = "'+req.body.searchText+'" ';
+		connection.query(selectString, function(err,results){
+		if(err) throw err;
 		res.send(results);
 	});
 	}
@@ -80,22 +157,24 @@ app.get('/showEmployees', function(req, res){
 });
 
 app.get('/showLogoutSuccess',function(req,res){
-	
+
 	res.sendFile('logoutsuccess.html',{'root':__dirname + '/templates'})
 	authenticated = false;
-	
+
 });
 
 app.post('/myaction', function(req, res) {
 	console.log('req.body');
 	console.log(req.body);
-	var record = {email: req.body.email, pass: req.body.pass};
+	var record = {fullName:req.body.fullName, email:req.body.email, pass:req.body.pass,
+		title:req.body.title, department:req.body.searchOption, salary:req.body.salary,
+		phoneNum:req.body.phoneNum, stat:req.body.stat, address: req.body.address};
 
 	//connection.connect();
-	connection.query('INSERT INTO hr_database.employees SET ?', record, function(err,res){
+	connection.query('INSERT INTO hr_database.Employees SET ?', record, function(err,res){
 	  	if(err) throw err;
 		console.log('Last record insert id:', res.insertId);
-		
+
 	});
 
 	res.redirect('/message');

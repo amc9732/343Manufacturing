@@ -16,42 +16,20 @@
 
     <!-- Custom styles for this template -->
     <link href="../style/cover.css" rel="stylesheet">
-    <link href="../style/signin.css" rel="stylesheet">
-    <script type="text/javascript" src="../script/jquery-1.11.2.js"></script>
-
-    <script type="text/javascript">
-      $(function(){
-        $('#btnSignIn').click(function(evt){
-          evt.preventDefault();
-          $.ajax({
-            url: '/signin',
-            type:'POST',
-            success:function(response){
-              console.log(response);
-            },
-            error:function(error){
-              console.log(error);
-            }
-          })
-        })
-      })
-     
-    </script>
 
   </head>
  <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
-				<ul class="nav pull-left">
-					<li><a href="/" class="btn btn-lg btn-primary btn-block">KennUWare</a></li>
-					<li><a href="/showSignInPage" class="btn btn-lg btn-primary btn-block">Sign-In</a></li>
-				</ul>
+			<ul class="nav pull-left">
+				<li><a href="/" class="btn btn-lg btn-primary btn-block">KennUWare</a></li>
+			</ul>
 		</div>	
 	</div>
-			
+	
+	<center>
 	<div class="container">
 		<div class="jumbotron">
-		<center>
 			<h2 class="email">Please Try Again, Wrong Username/Password</h2>
 			<p></p>
 			    <form class="form-signin" action="/verifyuser" method="post"  >
@@ -63,8 +41,8 @@
 					<p></p>
 					<button id="btnSignIn" class="btn btn-lg btn-primary btn-block" type="submit" style=width:150px>Log in</button>
 				</form>
-		</center>
 		</div>
-	</div>    
+	</div>
+	</center>
   </body>
 </html>

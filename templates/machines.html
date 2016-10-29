@@ -32,16 +32,16 @@
 			
 	<div class="container">
 		<div class="jumbotron">
-			<h2 class="email">Welcome!</h2>
+			<h2 class="email">View Machines</h2>
 			<div class="row">
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-					<button id="displayParts" type="button" class="btn btn-secondary">Show All Parts</button>
+					<button id="displayMachines" type="button" class="btn btn-secondary">Show All Parts</button>
 				</div>
 				<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
 					<div class="input-group">
 						<input id="searchText" type="text" value="" class="form-control" aria-label="...">
 						<span class="input-group-btn">
-							<button id="searchParts" class="btn btn-default" type="button">Search</button>
+							<button id="searchMachines" class="btn btn-default" type="button">Search</button>
 						</span>
 					</div>
 				</div>
@@ -50,10 +50,10 @@
 				</div>
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 					<select id="searchOption" class="form-control">
-						<option value="PartName">PartName</option>
-						<option value="Type">Type</option>
-						<option value="Attribute">Attribute</option>
-						<option value="Condition">Condition</option>
+						<option value="Name">Name</option>
+						<option value="HourlyCost">Hourly Cost</option>
+						<option value="ProudctionRate">Production Rate</option>
+						<option value="Price">Price</option>
 					</select>
 				<p></p>
 				</div>
@@ -61,10 +61,13 @@
 			
 			<table id="displayTable" class="table table-bordered">
 				<tr>
-					<th>PartName</th>
-					<th>Type</th>
-					<th>Attribute</th>
-					<th>Condition</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Title</th>
+					<th>Department</th>
+					<th>Salary</th>
+					<th>Superiors</th>
+					<th>Status</th>
 				</tr>
 			</table>
 			<div id="displayDiv"></div>
@@ -74,5 +77,5 @@
   </body>
   <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../entries/displayParts.js"></script>
+  <script type="text/javascript" src="../entries/displayMachine.js"></script>
 </html>
