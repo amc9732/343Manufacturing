@@ -66,7 +66,7 @@ function displayParts(){
             	 	 tableContent += '<tr>'
                      tableContent += '<td>' + value.Type + '</td>';
                      tableContent += '<td>' + value.Attribute + '</td>';
-                     tableContent += '<td>' + value.Qunatity + '</td>';
+                     tableContent += '<td>' + value.Quantity + '</td>';
                      tableContent += '</tr>'
              });
 
