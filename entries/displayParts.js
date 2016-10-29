@@ -7,7 +7,7 @@
  */
 
 // Quick fix to delete old entries when hitting refresh button.
-var displayTableHtml = "<tbody><tr><th>PartName</th><th>Type</th><th>Attribute</th><th>Condition</th></tr></tbody>";
+var displayTableHtml = "<tbody><tr><th>Type</th><th>Attribute</th><th>Qunatity</th></tr></tbody>";
 
 $(document).ready(function(){
     displayParts();
@@ -31,10 +31,9 @@ function displayParts(){
 
             $.each(json, function(key, value){
                 tableContent += '<tr>'
-                tableContent += '<td>' + value.PartName + '</td>';
                 tableContent += '<td>' + value.Type + '</td>';
                 tableContent += '<td>' + value.Attribute + '</td>';
-                tableContent += '<td>' + value.Condition + '</td>';
+                tableContent += '<td>' + value.Quantity + '</td>';
                 tableContent += '</tr>'
             });
 
@@ -65,10 +64,9 @@ function displayParts(){
 
              $.each(json, function(key, value){
             	 	 tableContent += '<tr>'
-            		 tableContent += '<td>' + value.PartName + '</td>';
                      tableContent += '<td>' + value.Type + '</td>';
                      tableContent += '<td>' + value.Attribute + '</td>';
-                     tableContent += '<td>' + value.Condition + '</td>';
+                     tableContent += '<td>' + value.Qunatity + '</td>';
                      tableContent += '</tr>'
              });
 

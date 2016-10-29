@@ -15,9 +15,9 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 //connection.connect();
 
-connection.query('SELECT * from manufacturing_database.part', function(err, rows, fields) {
+connection.query('SELECT * from manufacturing_database.parts', function(err, rows, fields) {
   if (!err)
-    console.log('Connection To "part" Successful');
+    console.log('Connection To "parts" Successful');
   else
     console.log('Error while performing Query.');
 });
@@ -113,7 +113,7 @@ app.get('/showMachines', function(req, res){
 
 app.get('/showParts', function(req, res){
 	if(authenticated){
-		connection.query('SELECT * FROM manufacturing_database.part', function(err,results){
+		connection.query('SELECT * FROM manufacturing_database.parts', function(err,results){
 		if(err) throw err;
 		res.send(results);
 	});
@@ -144,7 +144,7 @@ app.post('/searchParts', function(req, res){
 	if(authenticated){
 		var searchText = req.body.searchText;
 		var searchOption = req.body.searchOption;
-		var selectString = 'SELECT * FROM manufacturing_database.part WHERE '+req.body.searchOption+' = "'+req.body.searchText+'" ';
+		var selectString = 'SELECT * FROM manufacturing_database.parts WHERE '+req.body.searchOption+' = "'+req.body.searchText+'" ';
 		connection.query(selectString, function(err,results){
 		if(err) throw err;
 		res.send(results);
