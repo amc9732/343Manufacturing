@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>KennUWare</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../style/cover.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<ul class="nav pull-left">
+				<li><a href="/showSignInPage" class="btn btn-lg btn-primary btn-block">KennUWare</a></li>
+				<li><a href="#" class="btn btn-lg btn-default active">Parts</a></li>
+				<li><a href="/machines" class="btn btn-lg btn-default active">Machines</a></li>
+				<li><a href="#" class="btn btn-lg btn-default active">Manufacture</a></li>
+				<li><a href="/showLogoutSuccess" class="btn btn-lg btn-default active">Log Out</a></li>
+			</ul>
+		</div>	
+	</div>
+			
+	<center>	
+		<div class="container">
+			<div class="jumbotron">
+				
+					<h2 class="email">Request Parts</h2>
+					<p></p>
+					<select id="selectAttribute" title="" name="selectAttribute" class="form-control" style=width:350px>>
+						<option value="">Select Type</option>
+						<option value="Body">Body</option>
+						<option value="Band">Band</option>
+						<option value="Sensor">Sensor</option>
+						<option value="Comfort">Comfort</option>
+						<option value="LED">LED</option>
+						<option value="Screen">Screen</option>
+						<option value="USB">USB</option>
+						<option value="Chip">Chip</option>
+						<option value="Software">Software</option>
+					</select>
+					<p></p>
+					<div class="attributeContainer">
+						<div class="Body">
+							<select id="selectBody" class="form-control" style=width:350px>
+								<option value="1">Black</option>
+								<option value="2">Gold</option>
+								<option value="3">Silver</option>
+							</select>
+						</div>
+						<div class="Band">
+							<select id="selectBand" class="form-control" style=width:350px>
+								<option value="4">Black</option>
+								<option value="5">Gold</option>
+								<option value="6">Silver</option>
+								<option value="7">Leather</option>
+							</select>
+						</div>
+						<div class="Sensor">
+							<select id="selectSensor" class="form-control" style=width:350px>
+								<option value="8">Bio-Feedback Sensor</option>
+							</select>
+						</div>
+						<div class="Comfort">
+							<select id="selectComfort" class="form-control" style=width:350px>
+								<option value="9">Heating Coil</option>
+								<option value="10">Electric Stimulator</option>
+							</select>
+						</div>
+						<div class="LED">
+							<select id="selectLED" class="form-control" style=width:350px>
+								<option value="11">LED Light</option>
+							</select>
+						</div>
+						<div class="Screen">
+							<select id="selectScreen" class="form-control" style=width:350px>
+								<option value="12">Basic</option>
+								<option value="13">Touch</option>
+							</select>
+						</div>
+						<div class="USB">
+							<select id="selectUSB" class="form-control" style=width:350px>
+								<option value="14">USB Port</option>
+							</select>
+						</div>
+						<div class="Chip">
+							<select id="selectChip" class="form-control" style=width:350px>
+								<option value="15">Processor Chip</option>
+							</select>
+						</div>
+						<div class="Software">
+							<select id="selectSoftware" class="form-control" style=width:350px>
+								<option value="16">Fashion</option>
+								<option value="17">Comfort</option>
+								<option value="18">Healthies</option>
+								<option value="19">Actives</option>
+							</select>
+						</div>
+					</div>
+					<p></p>
+					<label for="order" class="sr-only">Quantity</label>
+					<input type="quantity" id="quantity" class="form-control" name="quantity" placeholder="Quantity" style=width:350px>
+					<p></p>
+					<button id="btnRequest" class="btn btn-lg btn-primary btn-block" type="submit" style=width:350px>Request</button>
+					<a href="/loggedin" class="btn btn-lg btn-primary btn-block" style=width:350px>Cancel</a>
+			
+			</div>
+		</div>
+	</center>
+	
+  </body>
+  <script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../entries/partsRequest.js"></script>
+</html>

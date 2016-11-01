@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "test",
-  port: 3306
+  port: 3308
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
@@ -70,6 +70,16 @@ app.get('/showModifyUsers',function(req,res){
 
 });
 
+app.get('/partsRequest',function(req,res){
+	if(authenticated){
+		res.sendFile('partsRequest.html',{'root':__dirname + '/templates'})
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
+});
+
 app.get('/message',function(req,res){
     res.sendFile('message.html',{'root': __dirname + '/templates'});
 });
@@ -122,6 +132,23 @@ app.get('/showParts', function(req, res){
 		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
 	}
 
+});
+
+app.get('/items/?:productID&?:quanity', function(req, res){
+	// This API call is stubbed out. This API call will go to the Inventory silo
+	// to request parts. A JSON object of {bool : "True"} or {bool: "False"} will
+	// be returned indicating successful request.
+	if(authenticated){
+		console.log("Product ID", req.params.productID)
+		console.log("Quantity", req.params.quanity)
+		testData = {bool:"True"};
+		var string=JSON.stringify(testData);
+		res.json(testData);
+	
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
 });
 
 app.post('/searchMachines', function(req, res){
