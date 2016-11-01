@@ -134,13 +134,13 @@ app.get('/showParts', function(req, res){
 
 });
 
-app.get('/items/?:productID&?:quanity', function(req, res){
+app.get('/items/?:productID&?:quantity', function(req, res){
 	// This API call is stubbed out. This API call will go to the Inventory silo
 	// to request parts. A JSON object of {bool : "True"} or {bool: "False"} will
 	// be returned indicating successful request.
 	if(authenticated){
 		console.log("Product ID", req.params.productID)
-		console.log("Quantity", req.params.quanity)
+		console.log("Quantity", req.params.quantity)
 		testData = {bool:"True"};
 		var string=JSON.stringify(testData);
 		res.json(testData);
