@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `manufacturing_database` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `manufacturing_database`;
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: manufacturing_database
@@ -112,6 +110,8 @@ CREATE TABLE `parts` (
   `Attribute` varchar(2) DEFAULT NULL,
   `Quantity` int(11) DEFAULT NULL,
   `Description` varchar(100) DEFAULT NULL,
+  `Cost` int(11) DEFAULT NULL,
+  `SuggestedQuantity` int(11) DEFAULT NULL,
   PRIMARY KEY (`PModelID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -122,7 +122,7 @@ CREATE TABLE `parts` (
 
 LOCK TABLES `parts` WRITE;
 /*!40000 ALTER TABLE `parts` DISABLE KEYS */;
-INSERT INTO `parts` VALUES (1,'Body','SB',0,'Small Finished Black Body'),(2,'Body','SG',0,'Small Finished Gold Body'),(3,'Body','SS',0,'Small Finished Silver Body'),(4,'Band','B',125,'Black Band'),(5,'Band','G',125,'Gold Band'),(6,'Band','S',125,'Silver Band'),(7,'Band','L',125,'Leather Band'),(8,'Sensor','01',300,'Biofeedback Sensor'),(9,'Comfort','01',200,'Heating Coil'),(10,'Comfort','02',150,'Electric Stimulator'),(11,'LED','01',400,'LED Light'),(12,'Body','LB',0,'Large Finished Black Body'),(13,'Body','LG',0,'Large Finished Gold Body'),(14,'Body','LS',0,'Large Finished Silver Body'),(15,'Screen','B',100,'Basic Screen'),(16,'Screen','T',400,'High-Resolution Touch Screen'),(17,'USB','--',500,'USB Port'),(22,'Chip','--',500,'Computer Chip'),(23,'Software','F',NULL,'Fashion Watch Software'),(24,'Software','C',NULL,'Comfort Watch Software'),(25,'Software','H',NULL,'Heath Watch Software'),(26,'Software','A',NULL,'Active Watch Software'),(27,'Body','RB',200,'Raw Black Metal for Body'),(28,'Body','RG',100,'Raw Gold Metal for Body'),(29,'Body','RS',200,'Raw Silver Metal for Body');
+INSERT INTO `parts` VALUES (1,'Body','SB',0,'Black Body',NULL,NULL),(2,'Body','SG',0,'Gold Body',NULL,NULL),(3,'Body','SS',0,'Silver Body',NULL,NULL),(4,'Band','B',125,'Black Band',NULL,NULL),(5,'Band','G',125,'Gold Band',NULL,NULL),(6,'Band','S',125,'Silver Band',NULL,NULL),(7,'Band','L',125,'Leather Band',NULL,NULL),(8,'Sensor','01',300,'Biofeedback Sensor',NULL,NULL),(9,'Comfort','01',200,'Heating Coil',NULL,NULL),(10,'Comfort','02',150,'Electric Stimulator',NULL,NULL),(11,'LED','01',400,'LED Light',NULL,NULL),(12,'Screen','B',100,'Basic Screen',NULL,NULL),(13,'Screen','T',400,'High-Resolution Touch Screen',NULL,NULL),(14,'USB','--',500,'USB Port',NULL,NULL),(15,'Chip','--',500,'Computer Chip',NULL,NULL),(16,'Software','F',NULL,'Fashion Watch Software',NULL,NULL),(17,'Software','C',NULL,'Comfort Watch Software',NULL,NULL),(18,'Software','H',NULL,'Heath Watch Software',NULL,NULL),(19,'Software','A',NULL,'Active Watch Software',NULL,NULL);
 /*!40000 ALTER TABLE `parts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -151,10 +151,6 @@ LOCK TABLES `process` WRITE;
 INSERT INTO `process` VALUES ('Body',1),('Body',2),('Band',3),('Chip',4),('LED',5),('Sensor',6),('USB',7),('Comfort',8),('Screen',9),('Software',10);
 /*!40000 ALTER TABLE `process` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'manufacturing_database'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -165,4 +161,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-29 19:37:33
+-- Dump completed on 2016-11-01 17:11:43
