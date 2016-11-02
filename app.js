@@ -70,6 +70,28 @@ app.get('/partsRequest',function(req,res){
 
 });
 
+app.get('/partrequests/', function(req, res){
+	// This API call is stubbed out. This API call will get parts from the
+	// Inventory silo.
+		test_data = {PartID: "1", Quantity: 500};
+		
+		connection.query('UPDATE manufacturing_database.parts SET Quantity=? WHERE PartID=?', [test_data.Quantity, test_data.PartID], function(err,res){
+            if(err) throw err
+        });
+
+});
+
+
+app.get('/manufacture',function(req,res){
+	if(authenticated){
+		res.sendFile('manufacture.html',{'root':__dirname + '/templates'})
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
+});
+
 app.get('/message',function(req,res){
     res.sendFile('message.html',{'root': __dirname + '/templates'});
 });
@@ -90,14 +112,6 @@ app.get('/machines',function(req,res){
     }
 });
 
-app.get('/manufacture',function(req,res){
-    if(authenticated){
-        res.sendFile('manufacture.html',{'root': __dirname + '/templates'});
-    } else {
-    		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
-    }
-});
-
 app.get('/showMachines', function(req, res){
 	if(authenticated){
 		connection.query('SELECT * FROM manufacturing_database.machine', function(err,results){
@@ -111,9 +125,66 @@ app.get('/showMachines', function(req, res){
 
 });
 
+app.get('/showProcess', function(req, res){
+	if(authenticated){
+		connection.query('SELECT * FROM manufacturing_database.process', function(err,results){
+		if(err) throw err;
+		res.send(results);
+	});
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
+});
+
+
+app.get('/manufacturingexpenses', function(req, res){
+	if(authenticated){
+		connection.query('SELECT Upkeep FROM manufacturing_database.cost', function(err,results){
+		if(err) throw err;
+		res.send(results);
+	});
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
+});
+
+app.get('/manufacturing/expenses', function(req, res){
+	if(authenticated){
+		connection.query('SELECT * FROM manufacturing_database.cost', function(err,results){
+		if(err) throw err;
+		var totalExpenses = 0;
+		totalExpenses += results.Purchases;
+		totalExpenses += results.Salaries;
+		totalExpenses += results.Upkeep;
+		res.send(totalExpenses);
+	});
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
+});
+
 app.get('/showParts', function(req, res){
 	if(authenticated){
 		connection.query('SELECT * FROM manufacturing_database.parts', function(err,results){
+		if(err) throw err;
+		res.send(results);
+	});
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
+});
+
+app.get('/showOrders', function(req, res){
+	if(authenticated){
+		connection.query('SELECT * FROM manufacturing_database.order', function(err,results){
 		if(err) throw err;
 		res.send(results);
 	});
@@ -174,12 +245,55 @@ app.post('/searchParts', function(req, res){
 
 });
 
+app.post('/searchOrders', function(req, res){
+	if(authenticated){
+		var searchText = req.body.searchText;
+		console.log(searchText);
+		var searchOption = req.body.searchOption;
+		var selectString = 'SELECT * FROM manufacturing_database.order WHERE '+req.body.searchOption+' = "'+req.body.searchText+'" ';
+		connection.query(selectString, function(err,results){
+		if(err) throw err;
+		res.send(results);
+	});
+	}
+	else{
+		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
+	}
+
+});
+
+app.post('/updateCost', function(req, res){
+    console.log('req.body');
+    console.log(req.body);
+    var Upkeep = req.body.Upkeep
+
+    connection.query('UPDATE manufacturing_database.cost SET Upkeep=? WHERE MonthNum="1"', [upkeep], function(err,res){
+        if(err) throw err;
+    });
+});
+
+app.post('/updateQuantity', function(req, res){
+    console.log('req.body');
+    console.log(req.body);
+    var PModelID = req.body.PModelID
+    var Quantity = req.body.Quantity;
+
+    connection.query('UPDATE hr_database.employees SET Quantity=? WHERE PModelID=?', [Quantity, PModelID], function(err,res){
+        if(err) throw err;
+    });
+});
+
 app.get('/showLogoutSuccess',function(req,res){
 
 	res.sendFile('logoutsuccess.html',{'root':__dirname + '/templates'})
 	authenticated = false;
 
 });
+
+app.post('/product/?:wearableID', function(req,res)){
+	test_data = {wearableID : wearableID};
+	res.send(test_data);
+}
 
 app.post('/myaction', function(req, res) {
 	console.log('req.body');
@@ -220,6 +334,7 @@ app.post('/verifyuser', function(req,res){
         	res.redirect('/showSignInPageretry');
         }
 });
+
 
 });
 
