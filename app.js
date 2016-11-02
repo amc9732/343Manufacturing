@@ -73,7 +73,7 @@ app.get('/partsRequest',function(req,res){
 app.get('/partrequests/', function(req, res){
 	// This API call is stubbed out. This API call will get parts from the
 	// Inventory silo.
-		test_data = {PartID: "1", Quantity: 500};
+		var test_data = {PartID: "1", Quantity: 500};
 
 		connection.query('UPDATE manufacturing_database.parts SET Quantity=? WHERE PartID=?', [test_data.Quantity, test_data.PartID], function(err,res){
             if(err) throw err
@@ -291,7 +291,7 @@ app.get('/showLogoutSuccess',function(req,res){
 });
 
 app.post('/product/?:wearableID', function(req,res){
-	test_data = {wearableID : wearableID};
+	var test_data = {wearableID : wearableID};
 	res.send(test_data);
 });
 
