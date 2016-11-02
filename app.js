@@ -290,10 +290,10 @@ app.get('/showLogoutSuccess',function(req,res){
 
 });
 
-app.post('/product/?:wearableID', function(req,res)){
+app.post('/product/?:wearableID', function(req,res){
 	test_data = {wearableID : wearableID};
 	res.send(test_data);
-}
+});
 
 app.post('/myaction', function(req, res) {
 	console.log('req.body');
