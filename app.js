@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "test",
-  port: 3308
+  port: 3306
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
@@ -58,16 +58,6 @@ app.get('/showSignInPage',function(req,res){
 });
 app.get('/showSignInPageretry',function(req,res){
     res.sendFile('signinretry.html',{'root': __dirname + '/templates'});
-});
-
-app.get('/showModifyUsers',function(req,res){
-	if(authenticated){
-		res.sendFile('modifyUsers.html',{'root':__dirname + '/templates'})
-	}
-	else{
-		res.sendFile('notloggedin.html', {'root' :__dirname + '/templates'})
-	}
-
 });
 
 app.get('/partsRequest',function(req,res){
@@ -141,7 +131,10 @@ app.get('/items/?:productID&?:quantity', function(req, res){
 	if(authenticated){
 		console.log("Product ID", req.params.productID)
 		console.log("Quantity", req.params.quantity)
-		testData = {bool:"True"};
+		if(req.params.quantity > 100)
+			testData = {bool:"False"};
+		else
+			testData = {bool:"True"};
 		var string=JSON.stringify(testData);
 		res.json(testData);
 	
