@@ -74,7 +74,7 @@ app.get('/partrequests/', function(req, res){
 	// This API call is stubbed out. This API call will get parts from the
 	// Inventory silo.
 		test_data = {PartID: "1", Quantity: 500};
-		
+
 		connection.query('UPDATE manufacturing_database.parts SET Quantity=? WHERE PartID=?', [test_data.Quantity, test_data.PartID], function(err,res){
             if(err) throw err
         });

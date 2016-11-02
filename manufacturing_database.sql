@@ -26,7 +26,6 @@ CREATE TABLE `cost` (
   `MonthNum` int(11) NOT NULL,
   `Purchases` float DEFAULT NULL,
   `Salaries` float DEFAULT NULL,
-  `Wages` float DEFAULT NULL,
   `Upkeep` float DEFAULT NULL,
   PRIMARY KEY (`MonthNum`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -38,7 +37,7 @@ CREATE TABLE `cost` (
 
 LOCK TABLES `cost` WRITE;
 /*!40000 ALTER TABLE `cost` DISABLE KEYS */;
-INSERT INTO `cost` VALUES (1,562500,75000,0,0);
+INSERT INTO `cost` VALUES (1,562500,75000,0);
 /*!40000 ALTER TABLE `cost` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,10 +78,8 @@ DROP TABLE IF EXISTS `order`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `order` (
   `OrderID` int(11) NOT NULL,
-  `Date` date DEFAULT NULL,
   `Quantity` int(11) DEFAULT NULL,
   `ModelID` varchar(11) DEFAULT NULL,
-  `CustomerID` int(11) DEFAULT NULL,
   PRIMARY KEY (`OrderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -93,7 +90,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (1,NULL,100,'WF0010000BB',NULL),(2,NULL,100,'WCB010200GG',NULL),(3,NULL,100,'WHB010101SS',NULL),(4,NULL,200,'WAT010101LS',NULL);
+INSERT INTO `order` VALUES (1,100,'WF0010000BB'),(2,100,'WCB010200GG'),(3,100,'WHB010101SS'),(4,200,'WAT010101LS');
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
