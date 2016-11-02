@@ -131,7 +131,7 @@ app.get('/items/?:productID&?:quantity', function(req, res){
 	if(authenticated){
 		console.log("Product ID", req.params.productID)
 		console.log("Quantity", req.params.quantity)
-		if(req.params.quantity > 100)
+		if(req.params.quantity > 100 && req.params.quantity < 0 && isNaN(req.params.quantity))
 			testData = {bool:"False"};
 		else
 			testData = {bool:"True"};
