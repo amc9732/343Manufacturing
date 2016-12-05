@@ -67,27 +67,15 @@ system at the following addresses:
 
 
 **************** LOGGING IN ****************
-To start using the application the following information can be used.  For manufacturing, login as:
+To start using the application the following information can be used.  For both silos login as:
 
-      Username: ManufacturingManager
-      Password  manager
-
-      or
-
-      Username: ManufacturingGrunt
+      Username: jrt5475@rit.edu
       Password: test
 
-   To login to human resources, use the following information:
-
-      Username: HRManager
-      Password: manager
-
-      or
-
-      Username: HRRep
-      Password: test
 
 **************** KNOWN BUGS/MISSING FUNCTIONALITY *****************
 
-	-
+	- Entering text when searching for attribute that is an integer will show items where that attribute is 0.
+	- Cost from machines when creating wearables is not calculated.
+	- Crosscutting with Validation and Authorization is not implemented but both are implemented in our own silos.
 
