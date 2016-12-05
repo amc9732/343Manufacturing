@@ -272,12 +272,22 @@ app.post('/updateCost', function(req, res){
 });
 
 app.post('/updateQuantity', function(req, res){
-    console.log('req.body');
-    console.log(req.body);
-    var PModelID = req.body.PModelID
-    var Quantity = req.body.Quantity;
+	var request = req.body.itemsToUpdate;
+	var quantity = request[0];
 
-    connection.query('UPDATE hr_database.employees SET Quantity=? WHERE PModelID=?', [Quantity, PModelID], function(err,res){
+	var sql = "UPDATE manufacturing_database.parts\nSET Quantity = Quantity - " + quantity + " \nWHERE Description IN (";
+
+	//make SQL statement for each item that needs to be updated
+	for (var i = 1; i < request.length; i++){
+		if (i != (request.length-1)){
+			sql += "'" + request[i] + "', ";
+		} else {
+			sql += "'" + request[i] + "');";
+		}
+	}
+	console.log(sql);
+
+	connection.query(sql, function(err,res){
         if(err) throw err;
     });
 });
