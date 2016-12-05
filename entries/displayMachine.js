@@ -52,6 +52,7 @@ function displayMachines(){
  	 var searchOptionValue = document.getElementById("searchOption").value;
  	 var searchText;
  	 var searchOption;
+	 var name;
      $.ajax({
          dataType: 'json',
          type: "POST",
@@ -64,15 +65,18 @@ function displayMachines(){
              $('#displayTable').html(displayTableHtml);
 
              $.each(json, function(key, value){
+				 name = value.Name
                  tableContent += '<tr>'
-                 tableContent += '<td>' + value.Name + '</td>';
+                 tableContent += '<td>' + name + '</td>';
                  tableContent += '<td>' + value.HourlyCost + '</td>';
                  tableContent += '<td>' + value.ProductionRate + '</td>';
                  tableContent += '<td>' + value.Price + '</td>';
  				tableContent += '</tr>'
              });
 
-             $('#displayTable').append(tableContent);
+            $('#displayTable').append(tableContent);
+			logMessage = "Display Machine " + name; 
+			logger("humanresources", 6,logMessage);
          },
          error: function(error){
              console.log(error);
