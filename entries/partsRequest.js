@@ -35,4 +35,5 @@ $(document).ready(function() {
          }
 
       });
+      alert("Your Request for " + quantityValue + " " + type + "s has been submitted!");
   })
