@@ -78,4 +78,6 @@ To start using the application the following information can be used.  For both 
 	- Entering text when searching for attribute that is an integer will show items where that attribute is 0.
 	- Cost from machines when creating wearables is not calculated.
 	- Crosscutting with Validation and Authorization is not implemented but both are implemented in our own silos.
+	- Integration with Inventory and Accounting is not implemented as their server ports are unknown, however this can
+	  easily be updated as all connections are stubbed out and tested. 
 
