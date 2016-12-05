@@ -1,16 +1,18 @@
 var express = require('express');
 var app = express();
+const proxy = require('express-http-proxy');
 var authenticated = false;
 var mysql = require('mysql');
 var connection = mysql.createConnection({
 	host: "localhost",
 	user: "root",
-	password: "",
-	port: 3306
+	password: "test",
+	port: 3308
 });
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use('/hr/', proxy('localhost:3000'));
 
 
 //connection.connect();
@@ -31,7 +33,7 @@ connection.query('SELECT * from manufacturing_database.machine', function(err, r
 
 //connection.end();
 // Binding express app to port 3000
-app.listen(3000,function(){
+app.listen(3001,function(){
     console.log('Node server running @ http://localhost:3000')
 });
 
