@@ -1,56 +1,93 @@
-# 343Manufacturing
-Repository for SWEN 343 HR and Manufacturing Group
+Manufacturing and Human Resources Silos
+Made by:  Austin Gardner, Austin Wolf, Austin Cowan, Maranda Destefano, Joshua Tobin
 
-## Installation
-1) Clone the above repository.
-```
-git clone https://github.com/amc9732/343Manufacturing.git
-```
+To use the system you can either set up the system locally using the instructions below or access the
+system at the following addresses:
 
-2) Navigate to the project repository and install the dependencies.
-```
-cd 343Manufacturing
-npm install
-```
+    Human Resources: http://vm343d.se.rit.edu:3000/
 
-3) Run `node app.js` to start the application
+    Manufacturing: http://vm343d.se.rit.edu:3001/
 
-4) Point your browser to `http://localhost:3000` and you should have the app running.
+**************** Instructions for local setup ****************
 
-## Start working on new Feature or Bug-fix
-1) Start on up to date "master" branch
-```
-git checkout master
-git pull origin master
-```
+1. To begin using this application, please download node and MySql from the following links:
 
-2) Create new branch off of master branch
-```
-git checkout -b myExampleBranch
-```
+      https://nodejs.org/en/download/
 
-3) Keep your branch updated with your changes you make to the code
-```
-git add . (this adds any new files you've made to the commit)
-git commit -m This is an example commit message
-git push origin myExampleBranch
-```
+     Download either the 64 bit .msi installer or the 32 bit msi installer for Windows, or download the 64 bit .pkg
+     for Mac.
 
-### When you finish work on your branch, or want to update Master with the work you have done:
-```
-git checkout master
-git pull origin master
-git merge myExampleBranch
-git push origin master
-```
-*Let teammates know you merged into Master, and have them follow the next step
+      https://www.mysql.com/downloads/
 
-### Whenever somebody else merges into Master:
-```
-git fetch origin
-git rebase origin/master
-```
+     Download a version of MySQL that works on your system
 
-### If you run into merge conflicts:
-Most IDEs have a merge conflict GUI tools you can use.
-You can also use ```git mergetool -y``` from terminal/cmd
+2. Open the MySql Workbench and create a new connection with the following settings:
+
+    Connection Name: KennUWare
+    Hostname: localhost
+    Port: 3306
+    Username: root
+    Password: test
+
+3. Open the .sql files found in silo folders and run them in a new query tab in the MySQL Workbench
+   This will create and fill the databases with sample data. The .sql files are named as follows:
+
+   manufacturing_database.sql
+
+   hr_database.sql
+
+4. Install node by following the prompts the application provides.  Ensure that node is added to your path if using
+   Windows.
+
+5. Open a CMD window on Windows, or a terminal window on Mac.
+
+6. In the terminal, cd to the top level directory of a SPECIFIC SILO.  For example, if this project is located at:
+
+      C:\Users\Myself\Downloads\KennUWare_Manufacturing
+
+   then execute the command:
+
+      cd C:\Users\Myself\Downloads\KennUWare_Manufacturing
+
+7. Once in the directory, execute the command:
+
+      npm install
+
+8. Then run the command:
+
+      node app.js
+
+9. Once the server has started, it will display the following in the terminal or CMD window:
+
+      Node server running @ http://localhost:3000
+
+   The server is now running the silo you chose.  In a web browser navigate to:
+
+      http://localhost:3000
+
+
+**************** LOGGING IN ****************
+To start using the application the following information can be used.  For manufacturing, login as:
+
+      Username: ManufacturingManager
+      Password  manager
+
+      or
+
+      Username: ManufacturingGrunt
+      Password: test
+
+   To login to human resources, use the following information:
+
+      Username: HRManager
+      Password: manager
+
+      or
+
+      Username: HRRep
+      Password: test
+
+**************** KNOWN BUGS/MISSING FUNCTIONALITY *****************
+
+	-
+
