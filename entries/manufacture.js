@@ -9,7 +9,7 @@
 
 // Quick fix to delete old entries when hitting refresh button.
 
-var displayTableHtml = "<tbody><tr><th>Order ID</th><th>Quantity</th><th>Model ID</th></tr></tbody>";
+var displayTableHtml = "<tbody><tr><th>Order ID</th><th>Quantity</th><th>Model ID</th><th>Start Order</th></tr></tbody>";
 
 
 $(document).ready(function(){
@@ -21,32 +21,30 @@ $(document).ready(function(){
         searchOrders();
     });
 
-    $(function(){
-        $(".jqbutton").button();
-            $('#startProcess').click(function () {
-            var orderID = document.getElementById("startProcess").value;
-            $(function(e) {
-                $.ajax({
-                    dataType: 'json',
-                    type: "GET",
-                    url: '/showOrders',
-                    context: this,
-                    success: function (json){
+    $('#displayTable').on('click', '#startProcess', function () {
+        var orderID = document.getElementById("startProcess").value;
+        $(function(e) {
+            $.ajax({
+                dataType: 'json',
+                type: "GET",
+                url: '/showOrders',
+                context: this,
+                success: function (json){
 
-                    $.each(json, function(key, value){
-                        if (value.OrderID == orderID){
-                            runOrder(value.ModelID, value.Quantity);
-                        }
-                    });
-
-                    },
-                    error: function(error){
-                        console.log(error);
+                $.each(json, function(key, value){
+                    if (value.OrderID == orderID){
+                        runOrder(value.ModelID, value.Quantity);
                     }
                 });
+
+                },
+                error: function(error){
+                    console.log(error);
+                }
             });
         });
     });
+
 });
 
 function manufacture(){
@@ -65,7 +63,7 @@ function manufacture(){
                 tableContent += '<td>' + value.OrderID + '</td>';
                 tableContent += '<td>' + value.Quantity + '</td>';
                 tableContent += '<td>' + value.ModelID + '</td>';
-                tableContent += '<td><button id="startProcess" value="'+ value.OrderID + '" class ="btn btn-default" type="button">Start</button></td>';
+                tableContent += '<td><button id="startProcess" value="'+ value.OrderID + '" class ="jqbutton" type="button">Start</button></td>';
                 tableContent += '</tr>'
 
             });
@@ -138,8 +136,8 @@ function runOrder(wearableID, quantity) {
 
                     $.each(json, function(key, value){
                         if (value.PartType == "SBody"){
-                            machineLine.push(value.Machine);
-                            console.log(machineLine);
+                            machineLine[machineLine.length] = value.Machine;
+
                         }
                     });
 
@@ -162,7 +160,7 @@ function runOrder(wearableID, quantity) {
 
                             $.each(json, function(key, value){
                                 if (value.PartType == "LBody"){
-                                    machineLine.push(value.Machine);
+                                    machineLine[machineLine.length] = value.Machine;
                                 }
                             });
 
@@ -177,71 +175,80 @@ function runOrder(wearableID, quantity) {
 
     // add body part needed to array
     if (body == "B") {
-        $(function(e) {
-            $.ajax({
+        function getData() {
+            return $.ajax({
                 dataType: 'json',
                 type: "GET",
                 url: '/showParts',
                 context: this,
-                success: function (json){
-
-                    $.each(json, function(key, value){
-                        if (value.Type == "Body" && value.Attribute == "B"){
-                            partsNeeded.push(value.PModelID);
-                        }
-                    });
-
-                },
+                success: handleData,
                 error: function(error){
                     console.log(error);
                 }
 
             });
-        });
+        };
+
+
+        function handleData(data) {
+            $.each(data, function(key, value){
+                if (value.Type == "Body" && value.Attribute == "B"){
+                    partsNeeded.push(value.PModelID);
+                }
+            });
+        }
+
+       getData().done(handleData);
     } else if (body == "G") {
-        $(function(e) {
-            $.ajax({
+        function getData() {
+            return $.ajax({
                 dataType: 'json',
                 type: "GET",
                 url: '/showParts',
                 context: this,
-                success: function (json){
-
-                    $.each(json, function(key, value){
-                        if (value.Type == "Body" && value.Attribute == "G"){
-                            partsNeeded.push(value.PModelID);
-                        }
-                    });
-
-                },
+                success: handleData,
                 error: function(error){
                     console.log(error);
                 }
 
             });
-        });
+        };
+
+
+        function handleData(data) {
+            $.each(data, function(key, value){
+                if (value.Type == "Body" && value.Attribute == "G"){
+                    partsNeeded.push(value.PModelID);
+                }
+            });
+        }
+
+       getData().done(handleData);
     } else if (body == "S") {
-        $(function(e) {
-            $.ajax({
+        function getData() {
+            return $.ajax({
                 dataType: 'json',
                 type: "GET",
                 url: '/showParts',
                 context: this,
-                success: function (json){
-
-                    $.each(json, function(key, value){
-                        if (value.Type == "Body" && value.Attribute == "S"){
-                            partsNeeded.push(value.PModelID);
-                        }
-                    });
-
-                },
+                success: handleData,
                 error: function(error){
                     console.log(error);
                 }
 
             });
-        });
+        };
+
+
+        function handleData(data) {
+            $.each(data, function(key, value){
+                if (value.Type == "Body" && value.Attribute == "S"){
+                    partsNeeded.push(value.PModelID);
+                }
+            });
+        }
+
+       getData().done(handleData);
     }
 
     // add chip installation step to machine line
@@ -255,7 +262,7 @@ function runOrder(wearableID, quantity) {
 
                 $.each(json, function(key, value){
                     if (value.PartType == "Chip"){
-                        machineLine.push(value.Machine);
+                        machineLine[machineLine.length] = value.Machine;
                     }
                 });
 
@@ -266,27 +273,31 @@ function runOrder(wearableID, quantity) {
 
         });
     });
-    $(function(e) {
-       $.ajax({
-           dataType: 'json',
-           type: "GET",
-           url: '/showParts',
-           context: this,
-           success: function (json){
 
-               $.each(json, function(key, value){
-                   if (value.Type == "Chip"){
-                       partsNeeded.push(value.PModelID);
-                   }
-               });
+    function getData() {
+        return $.ajax({
+            dataType: 'json',
+            type: "GET",
+            url: '/showParts',
+            context: this,
+            success: handleData,
+            error: function(error){
+                console.log(error);
+            }
 
-           },
-           error: function(error){
-               console.log(error);
-           }
+        });
+    };
 
-       });
-    });
+
+    function handleData(data) {
+        $.each(data, function(key, value){
+            if (value.Type == "Chip"){
+                partsNeeded.push(value.PModelID);
+            }
+        });
+    }
+
+   getData().done(handleData);
 
 
     // add USB installation step to machine line
@@ -300,7 +311,7 @@ function runOrder(wearableID, quantity) {
 
                 $.each(json, function(key, value){
                     if (value.PartType == "USB"){
-                        machineLine.push(value.Machine);
+                        machineLine[machineLine.length] = value.Machine;
                     }
                 });
 
@@ -311,27 +322,32 @@ function runOrder(wearableID, quantity) {
 
         });
     });
-    $(function(e) {
-       $.ajax({
-           dataType: 'json',
-           type: "GET",
-           url: '/showParts',
-           context: this,
-           success: function (json){
 
-               $.each(json, function(key, value){
-                   if (value.Type == "USB"){
-                       partsNeeded.push(value.PModelID);
-                   }
-               });
+    function getData() {
+        return $.ajax({
+            dataType: 'json',
+            type: "GET",
+            url: '/showParts',
+            context: this,
+            success: handleData,
+            error: function(error){
+                console.log(error);
+            }
 
-           },
-           error: function(error){
-               console.log(error);
-           }
+        });
+    };
 
-       });
-    });
+
+    function handleData(data) {
+        $.each(data, function(key, value){
+            if (value.Type == "USB"){
+                partsNeeded.push(value.PModelID);
+            }
+        });
+    }
+
+   getData().done(handleData);
+
 
     // add LED installation step to machine line
     if (LED != "00") {
@@ -345,7 +361,7 @@ function runOrder(wearableID, quantity) {
 
                     $.each(json, function(key, value){
                         if (value.PartType == "LED"){
-                            machineLine.push(value.Machine);
+                            machineLine[machineLine.length] = value.Machine;
                         }
                     });
 
@@ -357,27 +373,30 @@ function runOrder(wearableID, quantity) {
             });
         });
         if (LED == "01") {
-            $(function(e) {
-                $.ajax({
+            function getData() {
+                return $.ajax({
                     dataType: 'json',
                     type: "GET",
                     url: '/showParts',
                     context: this,
-                    success: function (json){
-
-                        $.each(json, function(key, value){
-                            if (value.Type == "LED" && value.Attribute == "01"){
-                                partsNeeded.push(value.PModelID);
-                            }
-                        });
-
-                    },
+                    success: handleData,
                     error: function(error){
                         console.log(error);
                     }
 
                 });
-            });
+            };
+
+
+            function handleData(data) {
+                $.each(data, function(key, value){
+                    if (value.Type == "LED" && value.Attribute == "01"){
+                        partsNeeded.push(value.PModelID);
+                    }
+                });
+            }
+
+           getData().done(handleData);
         }
     }
 
@@ -393,7 +412,7 @@ function runOrder(wearableID, quantity) {
 
                             $.each(json, function(key, value){
                                 if (value.PartType == "Sensor"){
-                                    machineLine.push(value.Machine);
+                                    machineLine[machineLine.length] = value.Machine;
                                 }
                             });
 
@@ -405,27 +424,30 @@ function runOrder(wearableID, quantity) {
                     });
         });
         if (sensor == "01") {
-            $(function(e) {
-                $.ajax({
+            function getData() {
+                return $.ajax({
                     dataType: 'json',
                     type: "GET",
                     url: '/showParts',
                     context: this,
-                    success: function (json){
-
-                        $.each(json, function(key, value){
-                            if (value.Type == "Sensor" && value.Attribute == "01"){
-                                partsNeeded.push(value.PModelID);
-                            }
-                        });
-
-                    },
+                    success: handleData,
                     error: function(error){
                         console.log(error);
                     }
 
                 });
-            });
+            };
+
+
+            function handleData(data) {
+                $.each(data, function(key, value){
+                    if (value.Type == "Sensor" && value.Attribute == "01"){
+                        partsNeeded.push(value.PModelID);
+                    }
+                });
+            }
+
+           getData().done(handleData);
         }
     }
 
@@ -441,7 +463,7 @@ function runOrder(wearableID, quantity) {
 
                             $.each(json, function(key, value){
                                 if (value.PartType == "Comfort"){
-                                    machineLine.push(value.Machine);
+                                    machineLine[machineLine.length] = value.Machine;
                                 }
                             });
 
@@ -453,49 +475,55 @@ function runOrder(wearableID, quantity) {
                     });
         });
         if (comfort == "01") {
-            $(function(e) {
-                $.ajax({
+            function getData() {
+                return $.ajax({
                     dataType: 'json',
                     type: "GET",
                     url: '/showParts',
                     context: this,
-                    success: function (json){
-
-                        $.each(json, function(key, value){
-                            if (value.Type == "Comfort" && value.Attribute == "01"){
-                                partsNeeded.push(value.PModelID);
-                            }
-                        });
-
-                    },
+                    success: handleData,
                     error: function(error){
                         console.log(error);
                     }
 
                 });
-            });
+            };
+
+
+            function handleData(data) {
+                $.each(data, function(key, value){
+                    if (value.Type == "Comfort" && value.Attribute == "01"){
+                        partsNeeded.push(value.PModelID);
+                    }
+                });
+            }
+
+           getData().done(handleData);
         } else if (comfort == "02") {
-            $(function(e) {
-                $.ajax({
+            function getData() {
+                return $.ajax({
                     dataType: 'json',
                     type: "GET",
                     url: '/showParts',
                     context: this,
-                    success: function (json){
-
-                        $.each(json, function(key, value){
-                            if (value.Type == "Comfort" && value.Attribute == "02"){
-                                partsNeeded.push(value.PModelID);
-                            }
-                        });
-
-                    },
+                    success: handleData,
                     error: function(error){
                         console.log(error);
                     }
 
                 });
-            });
+            };
+
+
+            function handleData(data) {
+                $.each(data, function(key, value){
+                    if (value.Type == "Comfort" && value.Attribute == "02"){
+                        partsNeeded.push(value.PModelID);
+                    }
+                });
+            }
+
+           getData().done(handleData);
         }
     }
 
@@ -511,7 +539,7 @@ function runOrder(wearableID, quantity) {
 
                     $.each(json, function(key, value){
                         if (value.PartType == "Screen"){
-                            machineLine.push(value.Machine);
+                            machineLine[machineLine.length] = value.Machine;
                         }
                     });
 
@@ -523,49 +551,55 @@ function runOrder(wearableID, quantity) {
             });
         });
         if (screen == "B") {
-            $(function(e) {
-                $.ajax({
+            function getData() {
+                return $.ajax({
                     dataType: 'json',
                     type: "GET",
                     url: '/showParts',
                     context: this,
-                    success: function (json){
-
-                        $.each(json, function(key, value){
-                            if (value.Type == "Screen" && value.Attribute == "B"){
-                                partsNeeded.push(value.PModelID);
-                            }
-                        });
-
-                    },
+                    success: handleData,
                     error: function(error){
                         console.log(error);
                     }
 
                 });
-            });
+            };
+
+
+            function handleData(data) {
+                $.each(data, function(key, value){
+                    if (value.Type == "Screen" && value.Attribute == "B"){
+                        partsNeeded.push(value.PModelID);
+                    }
+                });
+            }
+
+           getData().done(handleData);
         } else if (screen == "T") {
-            $(function(e) {
-                $.ajax({
+            function getData() {
+                return $.ajax({
                     dataType: 'json',
                     type: "GET",
                     url: '/showParts',
                     context: this,
-                    success: function (json){
-
-                        $.each(json, function(key, value){
-                            if (value.Type == "Screen" && value.Attribute == "T"){
-                                partsNeeded.push(value.PModelID);
-                            }
-                        });
-
-                    },
+                    success: handleData,
                     error: function(error){
                         console.log(error);
                     }
 
                 });
-            });
+            };
+
+
+            function handleData(data) {
+                $.each(data, function(key, value){
+                    if (value.Type == "Screen" && value.Attribute == "T"){
+                        partsNeeded.push(value.PModelID);
+                    }
+                });
+            }
+
+           getData().done(handleData);
         }
     }
 
@@ -580,7 +614,7 @@ function runOrder(wearableID, quantity) {
 
                             $.each(json, function(key, value){
                                 if (value.PartType == "Band"){
-                                    machineLine.push(value.Machine);
+                                    machineLine[machineLine.length] = value.Machine;
                                 }
                             });
 
@@ -593,93 +627,105 @@ function runOrder(wearableID, quantity) {
         });
 
     if (band == "B") {
-        $(function(e) {
-            $.ajax({
+        function getData() {
+            return $.ajax({
                 dataType: 'json',
                 type: "GET",
                 url: '/showParts',
                 context: this,
-                success: function (json){
-
-                    $.each(json, function(key, value){
-                        if (value.Type == "Band" && value.Attribute == "B"){
-                            partsNeeded.push(value.PModelID);
-                        }
-                    });
-
-                },
+                success: handleData,
                 error: function(error){
                     console.log(error);
                 }
 
             });
-        });
+        };
+
+
+        function handleData(data) {
+            $.each(data, function(key, value){
+                if (value.Type == "Band" && value.Attribute == "B"){
+                    partsNeeded.push(value.PModelID);
+                }
+            });
+        }
+
+       getData().done(handleData);
     } else if (band == "G") {
-        $(function(e) {
-            $.ajax({
+        function getData() {
+            return $.ajax({
                 dataType: 'json',
                 type: "GET",
                 url: '/showParts',
                 context: this,
-                success: function (json){
-
-                    $.each(json, function(key, value){
-                        if (value.Type == "Band" && value.Attribute == "G"){
-                            partsNeeded.push(value.PModelID);
-                        }
-                    });
-
-                },
+                success: handleData,
                 error: function(error){
                     console.log(error);
                 }
 
             });
-        });
+        };
+
+
+        function handleData(data) {
+            $.each(data, function(key, value){
+                if (value.Type == "Band" && value.Attribute == "G"){
+                    partsNeeded.push(value.PModelID);
+                }
+            });
+        }
+
+       getData().done(handleData);
     } else if (band == "S") {
-        $(function(e) {
-            $.ajax({
+        function getData() {
+            return $.ajax({
                 dataType: 'json',
                 type: "GET",
                 url: '/showParts',
                 context: this,
-                success: function (json){
-
-                    $.each(json, function(key, value){
-                        if (value.Type == "Band" && value.Attribute == "S"){
-                            partsNeeded.push(value.PModelID);
-                        }
-                    });
-
-                },
+                success: handleData,
                 error: function(error){
                     console.log(error);
                 }
 
             });
-        });
+        };
+
+
+        function handleData(data) {
+            $.each(data, function(key, value){
+                if (value.Type == "Band" && value.Attribute == "S"){
+                    partsNeeded.push(value.PModelID);
+                }
+            });
+        }
+
+       getData().done(handleData);
     } else if (band == "L") {
-        $(function(e) {
-            $.ajax({
+        function getData() {
+            return $.ajax({
                 dataType: 'json',
                 type: "GET",
                 url: '/showParts',
                 context: this,
-                success: function (json){
-
-                    $.each(json, function(key, value){
-                        if (value.Type == "Band" && value.Attribute == "L"){
-                            partsNeeded.push(value.PModelID);
-                        }
-                    });
-
-                },
+                success: handleData,
                 error: function(error){
                     console.log(error);
                 }
 
             });
-        });
+        };
+
+
+        function handleData(data) {
+            $.each(data, function(key, value){
+                if (value.Type == "Band" && value.Attribute == "L"){
+                    partsNeeded.push(value.PModelID);
+                }
+            });
+        }
+
+       getData().done(handleData);
     }
 
     // add software installation step to machine line
@@ -693,7 +739,7 @@ function runOrder(wearableID, quantity) {
 
                             $.each(json, function(key, value){
                                 if (value.PartType == "Software"){
-                                    machineLine.push(value.Machine);
+                                    machineLine[machineLine.length] = value.Machine;
                                 }
                             });
 
@@ -706,119 +752,135 @@ function runOrder(wearableID, quantity) {
         });
 
     if (category == "F") {
-        $(function(e) {
-            $.ajax({
+        function getData() {
+            return $.ajax({
                 dataType: 'json',
                 type: "GET",
                 url: '/showParts',
                 context: this,
-                success: function (json){
-
-                    $.each(json, function(key, value){
-                        if (value.Type == "Software" && value.Attribute == "F"){
-                            partsNeeded.push(value.PModelID);
-                        }
-                    });
-
-                },
+                success: handleData,
                 error: function(error){
                     console.log(error);
                 }
 
             });
-        });
+        };
+
+
+        function handleData(data) {
+            $.each(data, function(key, value){
+                if (value.Type == "Software" && value.Attribute == "F"){
+                    partsNeeded.push(value.PModelID);
+                }
+            });
+        }
+
+       getData().done(handleData);
     } else if (category == "C") {
-        $(function(e) {
-            $.ajax({
+        function getData() {
+            return $.ajax({
                 dataType: 'json',
                 type: "GET",
                 url: '/showParts',
                 context: this,
-                success: function (json){
-
-                    $.each(json, function(key, value){
-                        if (value.Type == "Software" && value.Attribute == "C"){
-                            partsNeeded.push(value.PModelID);
-                        }
-                    });
-
-                },
+                success: handleData,
                 error: function(error){
                     console.log(error);
                 }
 
             });
-        });
+        };
+
+
+        function handleData(data) {
+            $.each(data, function(key, value){
+                if (value.Type == "Software" && value.Attribute == "C"){
+                    partsNeeded.push(value.PModelID);
+                }
+            });
+        }
+
+       getData().done(handleData);
     } else if (category == "H") {
-        $(function(e) {
-            $.ajax({
+        function getData() {
+            return $.ajax({
                 dataType: 'json',
                 type: "GET",
                 url: '/showParts',
                 context: this,
-                success: function (json){
-
-                    $.each(json, function(key, value){
-                        if (value.Type == "Software" && value.Attribute == "H"){
-                            partsNeeded.push(value.PModelID);
-                        }
-                    });
-
-                },
+                success: handleData,
                 error: function(error){
                     console.log(error);
                 }
 
             });
-        });
+        };
+
+
+        function handleData(data) {
+            $.each(data, function(key, value){
+                if (value.Type == "Software" && value.Attribute == "H"){
+                    partsNeeded.push(value.PModelID);
+                }
+            });
+        }
+
+       getData().done(handleData);
+
     } else if (category == "A") {
-        $(function(e) {
-            $.ajax({
+        function getData() {
+            return $.ajax({
                 dataType: 'json',
                 type: "GET",
                 url: '/showParts',
                 context: this,
-                success: function (json){
-
-                    $.each(json, function(key, value){
-                        if (value.Type == "Software" && value.Attribute == "A"){
-                            partsNeeded.push(value.PModelID);
-                        }
-                    });
-
-                },
+                success: handleData,
                 error: function(error){
                     console.log(error);
                 }
 
             });
-        });
+        };
+
+
+        function handleData(data) {
+            $.each(data, function(key, value){
+                if (value.Type == "Software" && value.Attribute == "A"){
+                    partsNeeded.push(value.PModelID);
+                }
+            });
+        }
+
+       getData().done(handleData);
     }
-    console.log("2");
-    runLine(machineLine, partsNeeded, quantity);
+    console.log(partsNeeded);
+    console.log(partsNeeded.size);
+
+
+   // runLine(machineLine, partsNeeded, quantity);
 
     //************ delete order
 }
 
-function runLine(machineLine, partsNeeded, quantityLeft) {
-    console.log("3");
-    console.log(quantityLeft);
-    if (quantityLeft > 0) {
-        var i = 0;
-        var code;
-        while (machineLine[i]) {
-            console.log("test");
-            code = runStep(partsNeeded[i], machineLine[i]);
-            if (code == 0) { // if continue
-                i++;
-            } else if (code == 1) { // if error
-                runLine(machineLine, partsNeeded, quantityLeft);
-            }
-            // if report (code = 2) run step again with same i
-        }
-        //send wearable *******************
-        runLine(machineLine, partsNeeded, quantityLeft - 1);
-    }
+function runLine(machineLine, partsNeeded, quantity) {
+
+
+//    if (quantityLeft > 0) {
+//        var i = 0;
+//        var code;
+//        for(;machineLine[i];) {
+//            console.log("test");
+//            code = runStep(partsNeeded[i], machineLine[i]);
+//            if (code == 0) { // if continue
+//                i++;
+//            } else if (code == 1) { // if error
+//                runLine(machineLine, partsNeeded, quantityLeft);
+//            }
+//            // if report (code = 2) run step again with same i
+//        }
+//        //send wearable *******************
+//        runLine(machineLine, partsNeeded, quantityLeft - 1);
+//    }
 }
 function runStep(partID, machine) {
     // update upkeep costs in database
