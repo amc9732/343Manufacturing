@@ -76,7 +76,7 @@ function displayMachines(){
 
             $('#displayTable').append(tableContent);
 			logMessage = "Display Machine " + name; 
-			logger("humanresources", 6,logMessage);
+			logger("manufacturing", 6,logMessage);
          },
          error: function(error){
              console.log(error);
