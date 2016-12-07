@@ -19,10 +19,12 @@ $(document).ready(function(){
     });
 
     $('#displayTable').on('click', '#startProcess', function (e) {
-        var orderID = document.getElementById("startProcess").value;
+        var orderID = e.target.value;
         var quantity = $("#quantity" + orderID)[0].innerText;
         var model = $("#model" + orderID)[0].innerText;
 
+
+	debugger;
         runOrder(quantity, model);
     });
 
@@ -62,6 +64,7 @@ function manufacture(){
                 tableContent += '<td id="quantity' + orderNum + '">' + value.Quantity + '</td>';
                 tableContent += '<td id="model' + orderNum + '">' + value.ModelID + '</td>';
                 tableContent += '<td><button id="startProcess" value="'+ orderNum + '" class ="jqbutton" type="button">Start</button></td>';
+
                 tableContent += '</tr>'
 
             });
