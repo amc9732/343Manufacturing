@@ -1,0 +1,1005 @@
+{
+	"id": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+	"name": "Manufactuing API test",
+	"description": null,
+	"order": [],
+	"folders": [
+		{
+			"id": "f3b69e73-fbb8-77e6-922d-2d258e751b42",
+			"name": "Other",
+			"description": "",
+			"order": [
+				"8d4d742e-f793-451f-330a-9d1ed546dcdc",
+				"7efb7da6-0638-89c2-e20a-fffd4f4f530b"
+			],
+			"owner": "1200409"
+		},
+		{
+			"id": "e854cbb1-bf0f-03b5-331f-f303d2787e3b",
+			"name": "Show_Pages",
+			"description": "",
+			"order": [
+				"c90fb1aa-77e5-1b1f-09ca-53a5be9abd11",
+				"528a58be-2294-ecd6-4d24-7b32d9f17f36",
+				"a9f6525e-c2a2-bff1-2899-68d615a801a6",
+				"48db4422-8257-b1cd-76e9-eadef5892e55",
+				"c6e1de73-70db-fa11-553d-09921b55fb94",
+				"1cd09030-f5db-a493-7336-333c77c61a9f",
+				"3b39d60e-4b9a-ea66-cc69-9a6d06b77e6d",
+				"b2380364-8dba-ec47-4559-d547e3a6ce91",
+				"fe707744-5d71-128d-4b2f-ce1aa16f6e6d",
+				"f48ff4de-9b2f-aaae-6c97-92a56f898c42",
+				"68f3f12e-fa2c-ef87-13f1-c45bb5f93aad"
+			],
+			"owner": "1200409"
+		},
+		{
+			"id": "8e1a2518-218f-3c85-1d2f-95f68fbd5861",
+			"name": "items",
+			"description": "",
+			"order": [
+				"ec4b8cb6-9efb-8096-07f1-269fcf5d50de",
+				"e3ca66ec-b172-0a73-7048-b08a1a891b46",
+				"ff81d48a-915e-8c94-edd7-2b4d143f3583",
+				"58259f64-635c-ce53-da66-2d40882aa184"
+			],
+			"owner": "1200409"
+		},
+		{
+			"id": "3fdf9480-5bd1-089b-71c2-1984eba038c0",
+			"name": "manufacturingexpenses",
+			"description": "",
+			"order": [
+				"2558f7a8-f1ac-5250-7ebf-0eb886ebf392"
+			],
+			"owner": "1200409"
+		},
+		{
+			"id": "22ddc1e0-feeb-f8ed-648b-938364c60768",
+			"name": "partrequest",
+			"description": "",
+			"order": [
+				"dc1ad67b-d7e4-91ba-d1af-d422a0e5afbc"
+			],
+			"owner": "1200409"
+		},
+		{
+			"id": "567981cd-5cc6-0cd5-59fb-d01eb045f47e",
+			"name": "searchMachines",
+			"description": "",
+			"order": [
+				"b5dbee7a-62b7-ed9c-d91a-df880a2ca8d9",
+				"15738574-bb1c-80f9-863b-dfcd1a32ed85",
+				"d87527c5-15e4-fb1c-5527-f37ee7eb2c5e",
+				"54271553-a04f-106d-acbf-d48d8e4de908",
+				"2b974ca9-ce4b-d1e1-4e7c-f753a5ac4de7"
+			],
+			"owner": "1200409"
+		},
+		{
+			"id": "e063540b-641f-11c8-b0ac-f5b10d806744",
+			"name": "searchOrders",
+			"description": "",
+			"order": [
+				"75b2bc13-8b40-cc97-ae51-31ee4f193d2f",
+				"66a858ba-a821-ce87-36e7-a952453791fa",
+				"98930ff2-0b38-7e55-877f-ccd20abb9676",
+				"a7adad03-4f6b-1954-bad7-87028462e060",
+				"6b35a3bd-04fc-4b4a-288c-a976b28a90f9"
+			],
+			"owner": "1200409"
+		},
+		{
+			"id": "53102517-b9cb-aa65-de19-d02e1cdfec64",
+			"name": "searchParts",
+			"description": "",
+			"order": [
+				"722b0d1d-3a24-bf6f-f31e-4c50bfbe8fa1",
+				"28518815-c509-2cfc-85f7-7ed9ac94c999",
+				"95d360ea-0f04-6bff-53b3-4794eeead37b",
+				"3dd9cc1f-8d1e-bf42-42e8-511c9f1e8cf7",
+				"c1475d71-03d8-bf54-f147-e72120996438",
+				"513895b5-8a0a-84b5-0392-501a717aa511",
+				"16e45e7e-8c3f-61d5-0a48-9d0ed1f475c7"
+			],
+			"owner": "1200409"
+		}
+	],
+	"timestamp": 0,
+	"owner": "1200409",
+	"public": false,
+	"requests": [
+		{
+			"id": "15738574-bb1c-80f9-863b-dfcd1a32ed85",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nOrigin: http://localhost:3000\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\nReferer: http://localhost:3000/machines\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/searchMachines",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "searchOption",
+					"value": "Name"
+				},
+				{
+					"key": "searchText",
+					"value": "Large Body Press"
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480891233420,
+			"name": "http://localhost:3000/searchMachines _(Name_Option",
+			"description": "",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"responses": []
+		},
+		{
+			"id": "16e45e7e-8c3f-61d5-0a48-9d0ed1f475c7",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nOrigin: http://localhost:3000\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\nReferer: http://localhost:3000/loggedin\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/searchParts",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"data": [
+				{
+					"key": "searchOption",
+					"value": "Attribute"
+				},
+				{
+					"key": "searchText",
+					"value": "jsjsjj"
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:3000/searchParts(Attributes_Random_String)",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480892317534,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "53102517-b9cb-aa65-de19-d02e1cdfec64"
+		},
+		{
+			"folder": "e854cbb1-bf0f-03b5-331f-f303d2787e3b",
+			"id": "1cd09030-f5db-a493-7336-333c77c61a9f",
+			"name": "http://localhost:3000/loggedin",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:3000/loggedin",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"id": "2558f7a8-f1ac-5250-7ebf-0eb886ebf392",
+			"headers": "",
+			"url": "http://localhost:3000/manufacturingexpenses",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "urlencoded",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\n\ntests[\"Item does exist\"] = jsonData[0].Upkeep === 0;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480920234157,
+			"name": "http://localhost:3000/manufacturingexpenses",
+			"description": "",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"responses": []
+		},
+		{
+			"id": "28518815-c509-2cfc-85f7-7ed9ac94c999",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nOrigin: http://localhost:3000\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\nReferer: http://localhost:3000/showSignInPage\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/searchParts",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"data": [
+				{
+					"key": "searchOption",
+					"value": "Type"
+				},
+				{
+					"key": "searchText",
+					"value": ""
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:3000/searchParts(no_search_input",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480891666603,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "53102517-b9cb-aa65-de19-d02e1cdfec64"
+		},
+		{
+			"id": "2b974ca9-ce4b-d1e1-4e7c-f753a5ac4de7",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nOrigin: http://localhost:3000\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\nReferer: http://localhost:3000/machines\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/searchMachines",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"data": [
+				{
+					"key": "searchOption",
+					"value": "ProductionRate"
+				},
+				{
+					"key": "searchText",
+					"value": ""
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:3000/searchMachines_(Search_no_input)",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480891595213,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "567981cd-5cc6-0cd5-59fb-d01eb045f47e"
+		},
+		{
+			"folder": "e854cbb1-bf0f-03b5-331f-f303d2787e3b",
+			"id": "3b39d60e-4b9a-ea66-cc69-9a6d06b77e6d",
+			"name": "http://localhost:3000/machines",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:3000/machines",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"id": "3dd9cc1f-8d1e-bf42-42e8-511c9f1e8cf7",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nOrigin: http://localhost:3000\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\nReferer: http://localhost:3000/loggedin\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/searchParts",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"data": [
+				{
+					"key": "searchOption",
+					"value": "Quantity"
+				},
+				{
+					"key": "searchText",
+					"value": "-1"
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:3000/searchParts_(Quantity_negative_number)",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480892107038,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "53102517-b9cb-aa65-de19-d02e1cdfec64"
+		},
+		{
+			"folder": "e854cbb1-bf0f-03b5-331f-f303d2787e3b",
+			"id": "48db4422-8257-b1cd-76e9-eadef5892e55",
+			"name": "http://localhost:3000/showParts",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:3000/showParts",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\n\ntests[\"Item does exist\"] = jsonData[0].PModelID === 1;\n\ntests[\"Id is correct\"] = jsonData[0].PModelID !== 0;\n\ntests[\"Cost is null\"] = jsonData[0].Cost === null;\n\ntests[\"Attribute Value\"] = jsonData[0].Attribute === \"SB\";\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"id": "513895b5-8a0a-84b5-0392-501a717aa511",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nOrigin: http://localhost:3000\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\nReferer: http://localhost:3000/loggedin\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/searchParts",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"data": [
+				{
+					"key": "searchOption",
+					"value": "Quantity"
+				},
+				{
+					"key": "searchText",
+					"value": "jsjsjj"
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:3000/searchParts(Quantity_String)(Bug_Found)",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480892252919,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "53102517-b9cb-aa65-de19-d02e1cdfec64"
+		},
+		{
+			"folder": "e854cbb1-bf0f-03b5-331f-f303d2787e3b",
+			"id": "528a58be-2294-ecd6-4d24-7b32d9f17f36",
+			"name": "http://localhost:3000/showSignInPage",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:3000/showSignInPage",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Welcome!\"] = responseBody.has(\"Welcome!\");\n\ntests[\"Verify on the right page\"] = !responseBody.has(\"Employee\");",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"id": "54271553-a04f-106d-acbf-d48d8e4de908",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nOrigin: http://localhost:3000\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\nReferer: http://localhost:3000/machines\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/searchMachines",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"data": [
+				{
+					"key": "searchOption",
+					"value": "ProductionRate"
+				},
+				{
+					"key": "searchText",
+					"value": "-1"
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:3000/searchMachines_(ProductionRate_negative_input)",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480891540638,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "567981cd-5cc6-0cd5-59fb-d01eb045f47e"
+		},
+		{
+			"id": "58259f64-635c-ce53-da66-2d40882aa184",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nReferer: http://localhost:3000/partsRequest\nAccept-Encoding: gzip, deflate, sdch, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/items/4?pID=4",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:3000/items/4?pID=4",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480892941711,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\n\ntests[\"Endpoint\"] = jsonData.bool === \"True\";",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "8e1a2518-218f-3c85-1d2f-95f68fbd5861"
+		},
+		{
+			"id": "66a858ba-a821-ce87-36e7-a952453791fa",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nOrigin: http://localhost:3000\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\nReferer: http://localhost:3000/manufacture\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/searchOrders",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"data": [
+				{
+					"key": "searchOption",
+					"value": "Quantity"
+				},
+				{
+					"key": "searchText",
+					"value": ""
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:3000/searchOrders(no_input)",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480892411626,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "e063540b-641f-11c8-b0ac-f5b10d806744"
+		},
+		{
+			"folder": "e854cbb1-bf0f-03b5-331f-f303d2787e3b",
+			"id": "68f3f12e-fa2c-ef87-13f1-c45bb5f93aad",
+			"name": "http://localhost:3000/partsRequest",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:3000/partsRequest",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"id": "6b35a3bd-04fc-4b4a-288c-a976b28a90f9",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nOrigin: http://localhost:3000\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\nReferer: http://localhost:3000/manufacture\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/searchOrders",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"data": [
+				{
+					"key": "searchOption",
+					"value": "ModelID"
+				},
+				{
+					"key": "searchText",
+					"value": "njendnsanf"
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:3000/searchOrders(ModelID_random_string)",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480892588934,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "e063540b-641f-11c8-b0ac-f5b10d806744"
+		},
+		{
+			"folder": "53102517-b9cb-aa65-de19-d02e1cdfec64",
+			"id": "722b0d1d-3a24-bf6f-f31e-4c50bfbe8fa1",
+			"name": "http://localhost:3000/searchParts",
+			"dataMode": "urlencoded",
+			"data": [
+				{
+					"key": "searchText",
+					"value": "Body",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "searchOption",
+					"value": "Type",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nContent-Type: application/x-www-form-urlencoded\n",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "http://localhost:3000/searchParts",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"id": "75b2bc13-8b40-cc97-ae51-31ee4f193d2f",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\n",
+			"url": "http://localhost:3000/searchOrders",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "searchText",
+					"value": "100",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "searchOption",
+					"value": "Quantity",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480882476571,
+			"name": "http://localhost:3000/searchOrders",
+			"description": "",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"responses": [],
+			"folder": "e063540b-641f-11c8-b0ac-f5b10d806744"
+		},
+		{
+			"folder": "f3b69e73-fbb8-77e6-922d-2d258e751b42",
+			"id": "7efb7da6-0638-89c2-e20a-fffd4f4f530b",
+			"name": "http://localhost:3000/myaction",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "http://localhost:3000/myaction",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"folder": "f3b69e73-fbb8-77e6-922d-2d258e751b42",
+			"id": "8d4d742e-f793-451f-330a-9d1ed546dcdc",
+			"name": "http://localhost:3000/verifyuser",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "http://localhost:3000/verifyuser",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"id": "95d360ea-0f04-6bff-53b3-4794eeead37b",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nOrigin: http://localhost:3000\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\nReferer: http://localhost:3000/loggedin\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/searchParts",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"data": [
+				{
+					"key": "searchOption",
+					"value": "Type"
+				},
+				{
+					"key": "searchText",
+					"value": "sdfhjsdkdsj"
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:3000/searchParts_(random input_fails)",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480892042847,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "53102517-b9cb-aa65-de19-d02e1cdfec64"
+		},
+		{
+			"id": "98930ff2-0b38-7e55-877f-ccd20abb9676",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nOrigin: http://localhost:3000\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\nReferer: http://localhost:3000/manufacture\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/searchOrders",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"data": [
+				{
+					"key": "searchOption",
+					"value": "ModelID"
+				},
+				{
+					"key": "searchText",
+					"value": "WCB010200GG"
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:3000/searchOrders(Model_ID_passes)",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480892511304,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "e063540b-641f-11c8-b0ac-f5b10d806744"
+		},
+		{
+			"id": "a7adad03-4f6b-1954-bad7-87028462e060",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nOrigin: http://localhost:3000\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\nReferer: http://localhost:3000/manufacture\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/searchOrders",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"data": [
+				{
+					"key": "searchOption",
+					"value": "Quantity"
+				},
+				{
+					"key": "searchText",
+					"value": "ajdjs"
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:3000/searchOrders(Quantity_String)",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480892552255,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "e063540b-641f-11c8-b0ac-f5b10d806744"
+		},
+		{
+			"folder": "e854cbb1-bf0f-03b5-331f-f303d2787e3b",
+			"id": "a9f6525e-c2a2-bff1-2899-68d615a801a6",
+			"name": "http://localhost:3000/showSignInPageretry",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:3000/showSignInPageretry",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Welcome!\"] = responseBody.has(\"New Password\");\n\ntests[\"Verify on the right page\"] = !responseBody.has(\"LogOut\");",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"folder": "e854cbb1-bf0f-03b5-331f-f303d2787e3b",
+			"id": "b2380364-8dba-ec47-4559-d547e3a6ce91",
+			"name": "http://localhost:3000/Message",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:3000/Message",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"id": "b5dbee7a-62b7-ed9c-d91a-df880a2ca8d9",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "http://localhost:3000/searchMachines",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "searchText",
+					"value": "Large Body Press",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "searchOption",
+					"value": "Name",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480914264139,
+			"name": "http://localhost:3000/searchMachines_(No Search Results)",
+			"description": "Successful test",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"responses": []
+		},
+		{
+			"id": "c1475d71-03d8-bf54-f147-e72120996438",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nOrigin: http://localhost:3000\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\nReferer: http://localhost:3000/loggedin\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/searchParts",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"data": [
+				{
+					"key": "searchOption",
+					"value": "Quantity"
+				},
+				{
+					"key": "searchText",
+					"value": "-1"
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "http://localhost:3000/searchParts_(Quantity_negative_number)",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480892219278,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "53102517-b9cb-aa65-de19-d02e1cdfec64"
+		},
+		{
+			"folder": "e854cbb1-bf0f-03b5-331f-f303d2787e3b",
+			"id": "c6e1de73-70db-fa11-553d-09921b55fb94",
+			"name": "http://localhost:3000/showLogoutSuccess",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:3000/showLogoutSuccess",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"folder": "e854cbb1-bf0f-03b5-331f-f303d2787e3b",
+			"id": "c90fb1aa-77e5-1b1f-09ca-53a5be9abd11",
+			"name": "http://localhost:3000/showmachines",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:3000/showmachines/",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\n\ntests[\"Item does exist\"] = jsonData[0].MachineID === 1;\n\ntests[\"Id is correct\"] = jsonData[0].MachineID !== 0;\n\ntests[\"Employee isn't null\"] = jsonData[0].Employee !== null;\n\ntests[\"Employee Value\"] = jsonData[0].Employee === 2;",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"id": "d87527c5-15e4-fb1c-5527-f37ee7eb2c5e",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nOrigin: http://localhost:3000\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nContent-Type: application/x-www-form-urlencoded; charset=UTF-8\nReferer: http://localhost:3000/machines\nAccept-Encoding: gzip, deflate, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/searchMachines",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "searchOption",
+					"value": "ProductionRate"
+				},
+				{
+					"key": "searchText",
+					"value": "jdjdjdjieijfjnwejnfiwno"
+				}
+			],
+			"dataMode": "urlencoded",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests[\"Successful POST request\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480914238715,
+			"name": "http://localhost:3000/searchMachines_(ProductionRateOption_no_numbers)",
+			"description": "",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"responses": []
+		},
+		{
+			"folder": "22ddc1e0-feeb-f8ed-648b-938364c60768",
+			"id": "dc1ad67b-d7e4-91ba-d1af-d422a0e5afbc",
+			"name": "http://localhost:3000/partrequests",
+			"dataMode": "urlencoded",
+			"data": [],
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "",
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:3000/partrequests/partID=1&Quantity=500",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"id": "e3ca66ec-b172-0a73-7048-b08a1a891b46",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nReferer: http://localhost:3000/partsRequest\nAccept-Encoding: gzip, deflate, sdch, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/items/1030000?pID=10",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\n\ntests[\"Endpoint\"] = jsonData.bool === \"True\";",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1480892886648,
+			"name": "http://localhost:3000/items/1030000?pID=10",
+			"description": "",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"responses": []
+		},
+		{
+			"folder": "8e1a2518-218f-3c85-1d2f-95f68fbd5861",
+			"id": "ec4b8cb6-9efb-8096-07f1-269fcf5d50de",
+			"name": "http://localhost:3000/items_0",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:3000/items/productID=0&quantity=50",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\n\ntests[\"Endpoint\"] = jsonData.bool === \"True\";",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"folder": "e854cbb1-bf0f-03b5-331f-f303d2787e3b",
+			"id": "f48ff4de-9b2f-aaae-6c97-92a56f898c42",
+			"name": "http://localhost:3000/",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:3000/",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be"
+		},
+		{
+			"folder": "e854cbb1-bf0f-03b5-331f-f303d2787e3b",
+			"id": "fe707744-5d71-128d-4b2f-ce1aa16f6e6d",
+			"name": "http://localhost:3000/manufacture",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "Successful test",
+			"headers": "",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "http://localhost:3000/manufacture",
+			"preRequestScript": null,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"isLastRequest": true
+		},
+		{
+			"id": "ff81d48a-915e-8c94-edd7-2b4d143f3583",
+			"headers": "Accept: application/json, text/javascript, */*; q=0.01\nX-Requested-With: XMLHttpRequest\nUser-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36\nReferer: http://localhost:3000/partsRequest\nAccept-Encoding: gzip, deflate, sdch, br\nAccept-Language: en-US,en;q=0.8\n",
+			"url": "http://localhost:3000/items/280?pID=2",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "55d3b500-a9af-bc2e-dfbe-40054af281be",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:3000/items/280?pID=2",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1480892895555,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\n\ntests[\"Endpoint\"] = jsonData.bool === \"True\";",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "8e1a2518-218f-3c85-1d2f-95f68fbd5861"
+		}
+	]
+}
